@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('bike/index', 'Customer\BikeController@index');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
