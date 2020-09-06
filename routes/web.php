@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['prefix' => 'customer'], function () {
+Route::group(['prefix' => 'customer', 'middleware' => 'auth'], function () {
     Route::get('bike/index', 'Customer\BikeController@index');
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
